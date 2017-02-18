@@ -2,28 +2,161 @@
 	color: #666;
 	opacity: 1;
 }
+
 *:-moz-placeholder {
 	color: #666;
 	opacity: 1;
 }
+
 *::-moz-placeholder {
 	color: #666;
 	opacity: 1;
 }
+
 *:-ms-input-placeholder {
 	color: #666;
 	opacity: 1;
 }
 
 body input:focus:required:invalid,
-body textarea:focus:required:invalid {
-	
-}
+body textarea:focus:required:invalid {}
+
 body input:required:valid,
-body textarea:required:valid {
-	
-}
+body textarea:required:valid {}
+
 body {
 	font-family: "RobotoRegular", sans-serif;
 	font-size: 16px;
+	overflow: hidden;
+}
+
+.canvas {
+	display: block;
+	border: 1px solid #000000;
+	background-color: #b2a9a9;
+	margin: 30px auto;
+	box-shadow: 0 10px 10px #666;
+	animation-name: name;
+	animation-duration: 2s;
+	animation-timing-function: ease-out;
+}
+
+@keyframes name {
+	from {
+		transform: scale3d(.001, .001, .001);
+	}
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+.blind {
+	position: absolute;
+	width: 50vw;
+	height: 100vh;
+	background: rgb(130, 140, 149);
+	/* Old browsers */
+	background: -moz-linear-gradient(top, rgba(130, 140, 149, 1) 1%, rgba(183, 182, 198, 1) 51%, rgba(130, 140, 149, 1) 100%, rgba(181, 189, 200, 1) 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(130, 140, 149, 1) 1%, rgba(183, 182, 198, 1) 51%, rgba(130, 140, 149, 1) 100%, rgba(181, 189, 200, 1) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(130, 140, 149, 1) 1%, rgba(183, 182, 198, 1) 51%, rgba(130, 140, 149, 1) 100%, rgba(181, 189, 200, 1) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#828c95', endColorstr='#b5bdc8', GradientType=0);
+	/* IE6-9 */
+	transition: all 1s;
+}
+
+.blind_left {
+	top: 0;
+	left: 0;
+}
+
+.blind_right {
+	top: 0;
+	right: 0;
+}
+
+.blind-logo-wrapper {
+	position: absolute;
+	top: 10%;
+	left: calc(50% - 100px);
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-color: #00c002;
+	box-shadow: 0 3px 20px #666;	
+}
+
+.blind-logo {
+	margin: 15px auto;
+	width: 170px;
+	height: 170px;
+	background-color: #fff;
+	border-radius: 50%;
+}
+	.blind-logo div {
+		line-height: 170px;
+		width: 100%;
+		text-align: center;
+		font-size: 3em;
+		font-weight: 600;
+		text-shadow: 0 3px 3px #666;
+		cursor: default;
+	}
+
+.bind-logo-animate {
+	animation-name: logo;
+	animation-duration: 1s;
+	animation-timing-function: ease-in;
+	top: -50%;	
+}
+
+@keyframes logo {
+	0% {top: 10%;}
+	20% {top: 13%;}
+	100% {top: -50%;}
+}
+
+.try-wrapper {
+	position: absolute;
+	width: 300px;
+	height: auto;
+	top: 60%;
+	left: calc(50% - 150px);
+	text-align: center;	
+}
+	.try-wrapper div {
+		font-size: 4em;
+		text-shadow: 1px 1px 3px #fff;
+		cursor: default;
+		color: #666;
+		cursor: pointer;
+	}
+
+.try-wrapper-animation {
+	animation-name: logo-text;
+	animation-duration: 1s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: infinite;
+}
+@keyframes logo-text {
+	0% {top: 61.1%;transform: scale(1.05, 1.05);}
+	50% {top: 59.9%;transform: scale(1, 1);}
+	100% {top: 61.1%;transform: scale(1.05, 1.05);}
+}
+
+.try-wrapper-animation:hover {
+	animation-play-state: paused;
+}
+
+.try-animation {
+	animation-name: try-text;
+	animation-duration: 1s;
+	animation-timing-function: ease-in;
+	left: -50%;
+}
+@keyframes try-text {
+	from {left: calc(50% - 150px)}
+	to {left: -50%;}
 }
