@@ -1,4 +1,4 @@
-*::-webkit-input-placeholder {
+/**::-webkit-input-placeholder {
 	color: #666;
 	opacity: 1;
 }
@@ -22,7 +22,7 @@ body input:focus:required:invalid,
 body textarea:focus:required:invalid {}
 
 body input:required:valid,
-body textarea:required:valid {}
+body textarea:required:valid {}*/
 
 body {
 	font-family: "RobotoRegular", sans-serif;
@@ -32,12 +32,11 @@ body {
 
 .canvas {
 	display: block;
-	border: 1px solid #000000;
-	background-color: #b2a9a9;
-	margin: 30px auto;
-	box-shadow: 0 10px 10px #666;
+	border: 1px solid #b2a9a9;
+	margin: 15vh auto;
+	box-shadow: 3px 10px 20px #666;
 	animation-name: name;
-	animation-duration: 2s;
+	animation-duration: 1.6s;
 	animation-timing-function: ease-out;
 }
 
@@ -85,7 +84,7 @@ body {
 	height: 200px;
 	border-radius: 50%;
 	background-color: #00c002;
-	box-shadow: 0 3px 20px #666;	
+	box-shadow: 0 3px 20px;
 }
 
 .blind-logo {
@@ -95,27 +94,55 @@ body {
 	background-color: #fff;
 	border-radius: 50%;
 }
-	.blind-logo div {
-		line-height: 170px;
-		width: 100%;
-		text-align: center;
-		font-size: 3em;
-		font-weight: 600;
-		text-shadow: 0 3px 3px #666;
-		cursor: default;
-	}
+
+.blind-logo div {
+	line-height: 170px;
+	width: 100%;
+	text-align: center;
+	font-size: 3em;
+	font-weight: 600;
+	text-shadow: 0 3px 3px #666;
+	cursor: default;
+}
 
 .bind-logo-animate {
 	animation-name: logo;
-	animation-duration: 1s;
+	animation-duration: 2.3s;
 	animation-timing-function: ease-in;
-	top: -50%;	
+	top: -30px;
+	left: -30px;
+	transform: scale(0.5, 0.5);
+	box-shadow: 3px 10px 20px #666;
 }
 
 @keyframes logo {
-	0% {top: 10%;}
-	20% {top: 13%;}
-	100% {top: -50%;}
+	0% {
+		top: 10%;
+		left: calc(50% - 100px);
+		transform: scale(1, 1);
+		box-shadow: 0 3px 20px;
+	}
+	20% {
+		top: 13%;
+		left: calc(50% - 100px);
+		transform: scale(1, 1);
+		box-shadow: 0 3px 20px;
+	}
+	50% {
+		top: -50%;
+		left: calc(50% - 100px);
+		transform: rotate(-180deg) scale(1, 1);
+		box-shadow: 0 3px 20px;
+	}
+	55% {
+		top: -50%;
+		left: 10px;
+		transform: scale(0.5, 0.5);
+		box-shadow: 0 10px 10px #666;
+	}
+	100% {
+		top: -30px
+	}
 }
 
 .try-wrapper {
@@ -124,15 +151,16 @@ body {
 	height: auto;
 	top: 60%;
 	left: calc(50% - 150px);
-	text-align: center;	
+	text-align: center;
 }
-	.try-wrapper div {
-		font-size: 4em;
-		text-shadow: 1px 1px 3px #fff;
-		cursor: default;
-		color: #666;
-		cursor: pointer;
-	}
+
+.try-wrapper div {
+	font-size: 4em;
+	text-shadow: 1px 1px 3px #fff;
+	cursor: default;
+	color: #666;
+	cursor: pointer;
+}
 
 .try-wrapper-animation {
 	animation-name: logo-text;
@@ -140,10 +168,20 @@ body {
 	animation-timing-function: ease-in;
 	animation-iteration-count: infinite;
 }
+
 @keyframes logo-text {
-	0% {top: 61.1%;transform: scale(1.05, 1.05);}
-	50% {top: 59.9%;transform: scale(1, 1);}
-	100% {top: 61.1%;transform: scale(1.05, 1.05);}
+	0% {
+		top: 61.1%;
+		transform: scale(1.05, 1.05);
+	}
+	50% {
+		top: 59.9%;
+		transform: scale(1, 1);
+	}
+	100% {
+		top: 61.1%;
+		transform: scale(1.05, 1.05);
+	}
 }
 
 .try-wrapper-animation:hover {
@@ -156,7 +194,12 @@ body {
 	animation-timing-function: ease-in;
 	left: -50%;
 }
+
 @keyframes try-text {
-	from {left: calc(50% - 150px)}
-	to {left: -50%;}
+	from {
+		left: calc(50% - 150px)
+	}
+	to {
+		left: -50%;
+	}
 }

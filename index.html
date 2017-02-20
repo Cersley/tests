@@ -7,17 +7,17 @@
 	<meta name="description" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Game</title>
-	<link rel="icon" type="image/png" href="logo.png">
+	<link rel="icon" type="image/png" href="images.logo.png">
 	<link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/fonts.css" />
 	<link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
-
-	<canvas id="canvas" width="500" height="400" class="">
-		if not supported
+	<canvas id="canvas" class="">
+		Not supported!
 	</canvas>
+
 	<section id="blindRigth" class="blind blind_right"></section>
 	<section id="blindLeft" class="blind blind_left"></section>
 	<section id="blindLogo" class="blind-logo-wrapper">
@@ -28,6 +28,13 @@
 	<section id="tryField" class="try-wrapper try-wrapper-animation">
 		<div class="try-text">Try it out</div>
 	</section>
+
+	<svg id="car" hidden height="80" width="60">
+		<polygon points="20,0 40,0 40,20 60,20 60,40 40,40 40,60 60,60 60,80 0,80 0,60 20,60 20,40 0,40 0,20 20,20 20,0" 
+		style="fill:#00c002;stroke:purple;stroke-width:1"
+		/>
+	</svg>
+
 
 	<script src="js/common.js"></script>
 </body>
