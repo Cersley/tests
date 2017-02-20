@@ -5,7 +5,7 @@ const blindRigth = _id("blindRigth");
 const blindLeft = _id("blindLeft");
 const blindLogo = _id("blindLogo");
 const tryField = _id("tryField");
-const mainCarShape = _id("car");
+const mainShapeOfCar = _id("car");
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -33,7 +33,7 @@ let startGame = () => {
 }
 
 let myGameArea = {
-    canvas: _id("canvas"),
+    canvas: canvasField,
     context: canvas.getContext("2d"),
     start: () => {
         canvas.width = 500;
@@ -42,15 +42,32 @@ let myGameArea = {
 }
 
 function car() {
-    this.x = canvas.width / 2;
-    this.y = canvas.height;
-
     let ctx = myGameArea.context;
-    let img = mainCarShape.
-    ctx.drawImage(mainCarShape, this.x, this.y);
+    let svgCar = mainShapeOfCar.outerHTML;
+
+    setTimeout(() => {
+        drawInlineSVG(ctx, svgCar);
+    }, 2200);
 }
 
 
+/*<summary>
+    drawMySvgIntoCanvas
+</summary>*/
+function drawInlineSVG(ctx, rawSVG) {
+
+    var svg = new Blob([rawSVG], {type:"image/svg+xml;charset=utf-8"}),
+        domURL = self.URL || self.webkitURL || self,
+        url = domURL.createObjectURL(svg),
+        img = new Image;
+    
+    img.onload = function () {
+        ctx.drawImage(this, 225, 325);
+        domURL.revokeObjectURL(url);
+    };
+    
+    img.src = url;
+}
 
 
 /*<summary>
