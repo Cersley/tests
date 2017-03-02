@@ -76,5 +76,3 @@ function drawInlineSVG(ctx, rawSVG) {
 function _id(id) {
     return document.getElementById(id);
 }
-
-//lel
